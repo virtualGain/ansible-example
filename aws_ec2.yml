@@ -1,7 +1,7 @@
 ---
 plugin: aws_ec2
 regions:
-  - us-east-1
+  - us-east-2
 filters:
-  tag-key: Ansible
+  tag:App_code api
   instance-state-name: running
