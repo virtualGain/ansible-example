@@ -3,5 +3,5 @@ plugin: aws_ec2
 regions:
   - us-east-2
 filters:
-  tag:App_code api
+  tag:App_code: api
   instance-state-name: running
