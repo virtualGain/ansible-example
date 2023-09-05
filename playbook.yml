@@ -4,6 +4,10 @@
   vars_files:
     - vars/default.yml
   tasks:
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
+        
     - name: Install Apache packages
       become: true
       ansible.builtin.yum:
