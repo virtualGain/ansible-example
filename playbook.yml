@@ -11,6 +11,10 @@
         name: httpd
         state: present
 
+    - name: register host_public_ip
+      command: curl --silent --fail http://ifconfig.me/ip
+      register: host_public_ip
+      
     - name: Create document root
       become: true
       ansible.builtin.file:
@@ -25,10 +29,6 @@
         dest: /etc/httpd/conf.d/spacelift.conf
         mode: 0644
       notify: Restart server
-      
-    - name: register host_public_ip
-      command: curl --silent --fail http://ifconfig.me/ip
-      register: host_public_ip
       
     - name: Copy web pages
       become: true
